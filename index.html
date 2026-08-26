@@ -11474,7 +11474,7 @@ system_desktop
   
   <div class="grilla-musica-portafolio">
     
-    <!-- COLUMNA IZQUIERDA -->
+    <!-- COLUMNA IZQUIERDA: Textos arriba y el primer audio abajo -->
     <div class="columna-izquierda-musica">
       <div class="bloque-informacion-adicional">
         <h4 class="subtitulo-musica-info">Lo que se pidió</h4>
@@ -11491,6 +11491,7 @@ system_desktop
         </details>
       </div>
 
+      <!-- Cuadrado con borde del reproductor 1 -->
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
         <span class="info-archivo">Música de aventura relajada.mp3</span>
@@ -11498,7 +11499,7 @@ system_desktop
       </div>
     </div>
     
-    <!-- COLUMNA DERECHA -->
+    <!-- COLUMNA DERECHA: Los otros dos audios ordenados de arriba a abajo -->
     <div class="columna-derecha-musica">
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
@@ -11518,19 +11519,26 @@ system_desktop
   <!-- ESTILOS AVANZADOS QUIRÚRGICOS -->
   <style>
     /* ========================================================
-       OBLIGAR A LOS CONTENEDORES INVISIBLES DE SQUARESPACE A MEDIR EL 100%
-       Esto evita de raíz que las columnas se aplasten hacia la izquierda
+       1. LIBERAR EXCLUSIVAMENTE ESTE BLOQUE DE SQUARESPACE
+       Esto anula el ancho absoluto diminuto que aplastaba el texto
        ======================================================== */
     .fe-block-5f27aa45375a143dccc6,
-    #block-5f27aa45375a143dccc6,
-    #block-5f27aa45375a143dccc6 .sqs-block-content {
+    #block-5f27aa45375a143dccc6 {
+      display: inline-table !important; /* Desarma la estructura de cuadrícula rígida de Squarespace */
       width: 100% !important;
       max-width: 100% !important;
       min-width: 100% !important;
-      grid-column: 1 / -1 !important; /* Fuerza al bloque a ocupar todas las columnas de Squarespace */
       position: relative !important;
       left: 0 !important;
       transform: none !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Forzar al contenedor interno a expandirse completamente */
+    #block-5f27aa45375a143dccc6 .sqs-block-content {
+      display: block !important;
+      width: 100% !important;
     }
 
     #mi-seccion-musica-limpia {
@@ -11541,10 +11549,10 @@ system_desktop
       box-sizing: border-box !important;
     }
 
-    /* Rejilla de dos columnas reales */
+    /* 2. REJILLA DE DOS COLUMNAS INDEPENDIENTE */
     .grilla-musica-portafolio {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr !important; /* Dos columnas estables al 50% */
       gap: 40px !important;
       width: 100% !important;
       box-sizing: border-box !important;
@@ -11559,9 +11567,10 @@ system_desktop
     }
 
     .columna-derecha-musica {
-      gap: 25px !important;
+      gap: 25px !important; /* Espaciado entre tarjetas derechas */
     }
 
+    /* 3. INFORMACIÓN EXTERIOR (FUERA Y ARRIBA DEL AUDIO) */
     .bloque-informacion-adicional {
       width: 100% !important;
       margin-bottom: 25px !important;
@@ -11574,6 +11583,7 @@ system_desktop
       color: #ffffff !important;
       margin: 0 0 8px 0 !important;
       text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
     }
 
     .descripcion-musica-info {
@@ -11584,6 +11594,7 @@ system_desktop
       margin: 0 0 15px 0 !important;
     }
 
+    /* Acordeón nativo fuera de la caja */
     .acordeon-limpio-fuera {
       width: 100% !important;
       margin-top: 10px !important;
@@ -11610,18 +11621,19 @@ system_desktop
       margin-bottom: 10px !important;
     }
 
-    /* DISEÑO DE LAS TARJETAS */
+    /* 4. DISEÑO DE LAS TARJETAS CON CONTORNO BLANCO */
     .tarjeta-audio-portafolio {
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: #000000 !important; /* Evita transparencias raras con fondos de Squarespace */
+      background-color: #000000 !important; /* Fondo negro sólido para evitar transparencias */
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
+    /* Garantizar que el texto se mantenga completamente horizontal */
     .info-autor, .info-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
@@ -11649,7 +11661,7 @@ system_desktop
       display: block !important;
     }
 
-    /* Responsive para móviles */
+    /* Adaptación responsiva para celulares */
     @media (max-width: 768px) {
       .grilla-musica-portafolio {
         grid-template-columns: 1fr !important;
@@ -11658,6 +11670,7 @@ system_desktop
     }
   </style>
 </section>
+
 
 
 
