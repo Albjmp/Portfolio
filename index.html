@@ -11518,32 +11518,38 @@ system_desktop
 
   </div>
 
-  <!-- ESTILOS RADICALES PARA FORZAR ANCHOS REALES -->
+  <!-- ESTILOS EXTREMOS PARA DESACTIVAR LA COMPRESIÓN DE SQUARESPACE -->
   <style>
-    /* Forzar al contenedor original de Squarespace que está roto en tu pantalla a usar el ancho completo */
+    /* 1. ANULAR LA PRISIÓN DE GRID DE FLUID ENGINE */
+    /* Desactivamos los contenedores que achican la columna izquierda */
     .fe-block-5f27aa45375a143dccc6, 
     #block-5f27aa45375a143dccc6,
-    .sqs-block-content {
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 100% !important;
-      display: block !important;
-      transform: none !important;
+    .sqs-block-content,
+    .sqs-block,
+    .fe-block {
+      display: contents !important; /* Desarma la caja invisible de Squarespace y libera el contenido */
     }
 
+    /* 2. CREAR NUESTRA PROPIA MAQUETACIÓN GLOBAL LIBRE */
     #seccion-musica-final {
-      width: 100% !important;
+      width: 100vw !important;
+      position: relative !important;
+      left: 50% !important;
+      right: 50% !important;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
       box-sizing: border-box !important;
-      padding: 20px 0 !important;
+      padding: 40px 10% !important;
+      display: block !important;
     }
 
-    /* Grilla independiente que anula las restricciones de compresión lateral */
+    /* Forzar que nuestra grilla use todo el ancho real de la pantalla */
     .grilla-musica-aislada {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* Dos columnas perfectas 50/50 */
-      gap: 30px !important;
+      grid-template-columns: 1fr 1fr !important; /* 50% izquierda y 50% derecha exactos */
+      gap: 40px !important;
       width: 100% !important;
-      max-width: 1100px !important;
+      max-width: 1200px !important;
       margin: 0 auto !important;
       box-sizing: border-box !important;
     }
@@ -11552,29 +11558,28 @@ system_desktop
     .caja-audio-der {
       display: flex !important;
       flex-direction: column !important;
-      gap: 25px !important;
+      gap: 30px !important;
       width: 100% !important;
-      min-width: 0 !important; /* Evita desbordamiento flex */
     }
 
-    /* Diseño de los cuadrados contenedores con bordes redondeados */
+    /* 3. DISEÑO DE LAS TARJETAS CON CONTORNO BLANCO */
     .tarjeta-blanca-musica {
       border: 1.5px solid #ffffff !important;
       border-radius: 14px !important;
-      padding: 25px !important;
-      background-color: transparent !important;
+      padding: 24px !important;
+      background-color: #000000 !important; /* Fondo negro sólido para tapar imperfecciones de rejillas previas */
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
-    /* Forzar la visualización horizontal correcta del texto */
+    /* 4. EVITAR QUE LAS PALABRAS SE ROMPAN VERTICALMENTE */
     .meta-autor, .meta-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
       white-space: normal !important;
-      word-break: keep-all !important; /* Prohibido romper palabras letra por letra */
+      word-break: keep-all !important; 
       overflow-wrap: break-word !important;
       text-align: left !important;
     }
@@ -11583,61 +11588,59 @@ system_desktop
       font-size: 12px !important;
       color: #888888 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
       margin-bottom: 5px !important;
     }
 
     .meta-archivo {
       font-size: 16px !important;
       color: #ffffff !important;
-      margin-bottom: 15px !important;
+      margin-bottom: 20px !important;
     }
 
-    /* Corrección del reproductor nativo */
     .tarjeta-blanca-musica audio {
       width: 100% !important;
       display: block !important;
       margin-top: auto !important;
     }
 
-    /* Menú desplegable nativo sin herencias extrañas */
+    /* 5. ACORDEÓN DESPLEGABLE REPARADO */
     .desplegable-limpio {
       width: 100% !important;
-      margin-bottom: 15px !important;
+      margin-bottom: 20px !important;
     }
 
     .desplegable-limpio summary {
       font-family: 'Forum', sans-serif !important;
       color: #ffffff !important;
       cursor: pointer !important;
-      padding: 8px 0 !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-      outline: none !important;
+      padding: 10px 0 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
       text-align: left !important;
     }
 
     .contenido-desplegable {
-      padding: 12px 0 !important;
+      padding: 15px 0 !important;
     }
 
     .contenido-desplegable p {
       font-family: 'Xanh Mono', monospace !important;
-      font-size: 13.5px !important;
+      font-size: 14px !important;
       color: #cccccc !important;
       text-align: left !important;
       line-height: 1.6 !important;
-      margin-bottom: 10px !important;
+      margin-bottom: 12px !important;
       white-space: normal !important;
     }
 
-    /* Transformación responsiva para móviles */
+    /* Vista responsiva para pantallas de teléfonos móviles */
     @media (max-width: 768px) {
       .grilla-musica-aislada {
-        grid-template-columns: 1fr !important; /* Se vuelve una sola columna */
+        grid-template-columns: 1fr !important;
       }
     }
   </style>
 </section>
+
 
 
 
