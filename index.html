@@ -114,26 +114,23 @@
 }
 
 <style>
-/* 1. Curar el texto de Sobre Mí: Permitirle saltos de línea normales y centrarlo */
-.sqs-html-content p, .sqs-block-html p {
+/* Arreglo para el bloque de "Sobre Mí" */
+#sections .sqs-block-html p {
   white-space: normal !important;
   text-align: center !important;
-  word-break: normal !important;
 }
 
-/* 2. Forzar al número de teléfono a NO dividirse en los guiones */
-a[href^="tel:"], 
-p:contains("809"), 
-p:contains("-") {
+/* Arreglo exclusivo para el Footer (Teléfono e Información) */
+footer .sqs-block-html p {
+  text-align: center !important;
+}
+
+/* Aplica el NO romper línea únicamente a textos cortos (como el teléfono) */
+footer .sqs-block-html p {
   word-break: keep-all !important;
-  white-space: nowrap !important;
-}
-
-/* 3. Asegurar que las cajas de Squarespace tengan el ancho correcto */
-.sqs-block-html, .sqs-block-html-content {
-  width: 100% !important;
 }
 </style>
+
 
 
 
