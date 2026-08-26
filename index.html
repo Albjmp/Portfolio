@@ -11470,39 +11470,54 @@ system_desktop
 
 
 </div>
-</div></div></div><section id="mi-bloque-musica-independiente">
-  <div class="rejilla-musica-segura">
+</div></div></div><section id="mi-seccion-musica-limpia">
+  
+  <!-- CONTENEDOR PRINCIPAL EN DOS COLUMNAS -->
+  <div class="grilla-musica-portafolio">
     
-    <!-- COLUMNA IZQUIERDA: Primer audio solo con su acordeón -->
-    <div class="tarjeta-individual-musica">
-      <span class="etiqueta-autor">Alberto Muñoz</span>
-      <span class="etiqueta-archivo">Música de aventura relajada.mp3</span>
+    <!-- COLUMNA IZQUIERDA: Textos afuera y arriba del primer bloque de audio -->
+    <div class="columna-izquierda-musica">
       
-      <details class="acordeon-desplegable-fijo">
-        <summary>Cómo se logró</summary>
-        <div class="cuerpo-acordeon">
-          <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
-          <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
-          <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
-          <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
-        </div>
-      </details>
+      <!-- Textos requeridos fuera y encima del bloque -->
+      <div class="bloque-informacion-adicional">
+        <h4 class="subtitulo-musica-info">Lo que se pidió</h4>
+        <p class="descripcion-musica-info">Componer una pieza musical que capture una ambientación de aventura relajada para un videojuego.</p>
+        
+        <!-- Acordeón nativo fuera y encima del audio -->
+        <details class="acordeon-limpio-fuera">
+          <summary>Cómo se logró</summary>
+          <div class="contenido-acordeon-fuera">
+            <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
+            <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
+            <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
+            <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Cuadrado con borde que contiene ÚNICAMENTE el primer reproductor -->
+      <div class="tarjeta-audio-portafolio">
+        <span class="info-autor">Alberto Muñoz</span>
+        <span class="info-archivo">Música de aventura relajada.mp3</span>
+        <audio controls src="./media/musica%20de%20aventura%20relajada.mp3"></audio>
+      </div>
       
-      <audio controls src="./media/musica%20de%20aventura%20relajada.mp3"></audio>
     </div>
     
-    <!-- COLUMNA DERECHA: Los otros dos audios ordenados de arriba a abajo -->
-    <div class="columna-derecha-fija">
+    <!-- COLUMNA DERECHA: Los otros dos audios ordenados verticalmente -->
+    <div class="columna-derecha-musica">
       
-      <div class="tarjeta-individual-musica">
-        <span class="etiqueta-autor">Alberto Muñoz</span>
-        <span class="etiqueta-archivo">Plants vs Zombies Soundtrack [Main Menu].mp3</span>
+      <!-- Tarjeta de Audio 2 -->
+      <div class="tarjeta-audio-portafolio">
+        <span class="info-autor">Alberto Muñoz</span>
+        <span class="info-archivo">Plants vs Zombies Soundtrack [Main Menu].mp3</span>
         <audio controls src="./media/Plants%20vs%20Zombies%20Soundtrack.%20[Main%20Menu].mp3"></audio>
       </div>
       
-      <div class="tarjeta-individual-musica">
-        <span class="etiqueta-autor">Alberto Muñoz</span>
-        <span class="etiqueta-archivo">Emulación de la música de PvZ.mp3</span>
+      <!-- Tarjeta de Audio 3 -->
+      <div class="tarjeta-audio-portafolio">
+        <span class="info-autor">Alberto Muñoz</span>
+        <span class="info-archivo">Emulación de la música de PvZ.mp3</span>
         <audio controls src="./media/emulacion%20de%20la%20musica%20de%20pvz.mp3"></audio>
       </div>
       
@@ -11510,62 +11525,105 @@ system_desktop
 
   </div>
 
-  <!-- ESTILOS ANTIBLOQUEO: GARANTIZAN ANCHO, ALTO Y VISIBILIDAD -->
-    <!-- ESTILOS AVANZADOS BYPASS CONTRA LA COMPRESIÓN DE REJILLA -->
+  <!-- ESTILOS LOCALIZADOS: PROTEGEN EL RESTO DE TU PÁGINA -->
   <style>
-    /* 1. LIBERAR EL CONTENEDOR ENANO DE SQUARESPACE */
-    .fe-block-5f27aa45375a143dccc6, 
-    #block-5f27aa45375a143dccc6,
-    .sqs-block-content {
+    /* RESETEO LOCALIZADO: No altera ninguna otra sección de GitHub */
+    #mi-seccion-musica-limpia {
       display: block !important;
       width: 100% !important;
-      min-height: 500px !important; /* Mantiene viva la altura de la sección */
-      position: relative !important;
-      transform: none !important;
-    }
-
-    /* 2. FORZAR NUESTRO CONTENEDOR A EXPANDIRSE POR ENCIMA DE SQUARESPACE */
-    #mi-bloque-musica-independiente {
-      position: absolute !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important; /* Centra el bloque exactamente en el medio de la pantalla */
-      width: 90vw !important; /* Ocupa el 90% del ancho real del monitor */
-      max-width: 1100px !important; /* Evita que se estire demasiado en pantallas gigantes */
-      display: block !important;
+      max-width: 1100px !important;
+      margin: 50px auto !important;
+      padding: 0 20px !important;
       box-sizing: border-box !important;
-      z-index: 10 !important;
     }
 
-    /* 3. REJILLA INDEPENDIENTE EN DOS COLUMNAS REALES */
-    .rejilla-musica-segura {
+    /* Creación de rejilla nativa limpia sin chocar con contenedores superiores */
+    .grilla-musica-portafolio {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* Reparte el espacio en 50% y 50% reales */
+      grid-template-columns: 1fr 1fr !important; /* Dos columnas estables e idénticas */
       gap: 40px !important;
       width: 100% !important;
       box-sizing: border-box !important;
     }
 
-    .columna-derecha-fija {
+    .columna-izquierda-musica, 
+    .columna-derecha-musica {
       display: flex !important;
       flex-direction: column !important;
-      gap: 25px !important;
       width: 100% !important;
+      box-sizing: border-box !important;
     }
 
-    /* 4. DISEÑO DE LOS CUADRADOS CON BORDE BLANCO */
-    .tarjeta-individual-musica {
+    .columna-derecha-musica {
+      gap: 25px !important; /* Espaciado entre las dos tarjetas derechas */
+    }
+
+    /* Elementos informativos superiores (Fuera del bloque de audio) */
+    .bloque-informacion-adicional {
+      width: 100% !important;
+      margin-bottom: 25px !important;
+      text-align: left !important;
+    }
+
+    .subtitulo-musica-info {
+      font-family: 'Forum', sans-serif !important;
+      font-size: 18px !important;
+      color: #ffffff !important;
+      margin: 0 0 8px 0 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+    }
+
+    .descripcion-musica-info {
+      font-family: 'Xanh Mono', monospace !important;
+      font-size: 14px !important;
+      color: #bbbbbb !important;
+      line-height: 1.5 !important;
+      margin: 0 0 15px 0 !important;
+    }
+
+    /* Estilo del Acordeón Desplegable (Fuera de la caja) */
+    .acordeon-limpio-fuera {
+      width: 100% !important;
+      margin-top: 10px !important;
+    }
+
+    .acordeon-limpio-fuera summary {
+      font-family: 'Forum', sans-serif !important;
+      font-size: 16px !important;
+      color: #ffffff !important;
+      cursor: pointer !important;
+      padding: 8px 0 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      outline: none !important;
+    }
+
+    .contenido-acordeon-fuera {
+      padding: 12px 0 0 0 !important;
+    }
+
+    .contenido-acordeon-fuera p {
+      font-family: 'Xanh Mono', monospace !important;
+      font-size: 13.5px !important;
+      color: #aaaaaa !important;
+      line-height: 1.6 !important;
+      margin-bottom: 10px !important;
+    }
+
+    /* CUADRADOS DE AUDIO CON CONTORNO BLANCO */
+    .tarjeta-audio-portafolio {
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: #000000 !important; /* Fondo negro para que no se vea nada por detrás */
+      background-color: transparent !important;
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
-    /* 5. ARREGLO DE TEXTOS HORIZONTALES (PROHIBIDO CAER EN CASCADA) */
-    .etiqueta-autor, .etiqueta-archivo {
+    /* Asegurar lectura horizontal del texto y evitar caídas letra por letra */
+    .info-autor, .info-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
       white-space: normal !important;
@@ -11574,72 +11632,35 @@ system_desktop
       text-align: left !important;
     }
 
-    .etiqueta-autor {
+    .info-autor {
       font-size: 11px !important;
-      color: #888888 !important;
+      color: #777777 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
-      margin-bottom: 5px !important;
+      margin-bottom: 4px !important;
     }
 
-    .etiqueta-archivo {
+    .info-archivo {
       font-size: 16px !important;
       color: #ffffff !important;
-      font-weight: normal !important;
       margin-bottom: 15px !important;
     }
 
-    .tarjeta-individual-musica audio {
+    .tarjeta-audio-portafolio audio {
       width: 100% !important;
       display: block !important;
       margin-top: auto !important;
     }
 
-    /* 6. CONTROL DEL ACORDEÓN DESPLEGABLE */
-    .acordeon-desplegable-fijo {
-      width: 100% !important;
-      margin-bottom: 15px !important;
-    }
-
-    .acordeon-desplegable-fijo summary {
-      font-family: 'Forum', sans-serif !important;
-      color: #ffffff !important;
-      cursor: pointer !important;
-      padding: 8px 0 !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-      text-align: left !important;
-      outline: none !important;
-    }
-
-    .cuerpo-acordeon {
-      padding: 12px 0 5px 0 !important;
-    }
-
-    .cuerpo-acordeon p {
-      font-family: 'Xanh Mono', monospace !important;
-      font-size: 14px !important;
-      color: #cccccc !important;
-      text-align: left !important;
-      line-height: 1.5 !important;
-      margin-bottom: 10px !important;
-      white-space: normal !important;
-    }
-
-    /* Comportamiento fluido para celulares */
+    /* Responsive para teléfonos celulares */
     @media (max-width: 768px) {
-      #mi-bloque-musica-independiente {
-        position: relative !important;
-        left: 0 !important;
-        transform: none !important;
-        width: 100% !important;
-      }
-      .rejilla-musica-segura {
-        grid-template-columns: 1fr !important;
-        gap: 25px !important;
+      .grilla-musica-portafolio {
+        grid-template-columns: 1fr !important; /* Una sola fila vertical en móviles */
+        gap: 30px !important;
       }
     }
   </style>
 </section>
+
 
 
 
