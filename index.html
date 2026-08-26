@@ -11470,27 +11470,24 @@ system_desktop
 
 
 </div>
-</div></div></div><section id="seccion-musica">
-  
-  <div class="contenedor-columnas-musica">
+</div></div></div><section id="seccion-musica-final">
+  <div class="grilla-musica-aislada">
     
-    <!-- COLUMNA IZQUIERDA: Un solo audio con su información -->
-    <div class="columna-musica-izquierda">
-      <div class="tarjeta-audio">
-        <span class="autor-audio">Alberto Muñoz</span>
-        <span class="nombre-audio">Música de aventura relajada.mp3</span>
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="caja-audio-izq">
+      <div class="tarjeta-blanca-musica">
+        <span class="meta-autor">Alberto Muñoz</span>
+        <span class="meta-archivo">Música de aventura relajada.mp3</span>
         
-        <div class="acordeon-interno">
-          <details class="acordeon-item-limpio">
-            <summary class="accordion-item__title">Cómo se logró</summary>
-            <div class="accordion-item__description">
-              <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
-              <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
-              <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
-              <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
-            </div>
-          </details>
-        </div>
+        <details class="desplegable-limpio">
+          <summary>Cómo se logró</summary>
+          <div class="contenido-desplegable">
+            <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
+            <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
+            <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
+            <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
+          </div>
+        </details>
         
         <audio controls>
           <source src="./media/musica%20de%20aventura%20relajada.mp3" type="audio/mpeg">
@@ -11498,22 +11495,20 @@ system_desktop
       </div>
     </div>
     
-    <!-- COLUMNA DERECHA: Los otros dos audios apilados -->
-    <div class="columna-musica-derecha">
+    <!-- COLUMNA DERECHA -->
+    <div class="caja-audio-der">
       
-      <!-- Tarjeta 2 -->
-      <div class="tarjeta-audio">
-        <span class="autor-audio">Alberto Muñoz</span>
-        <span class="nombre-audio">Plants vs Zombies Soundtrack [Main Menu].mp3</span>
+      <div class="tarjeta-blanca-musica">
+        <span class="meta-autor">Alberto Muñoz</span>
+        <span class="meta-archivo">Plants vs Zombies Soundtrack [Main Menu].mp3</span>
         <audio controls>
           <source src="./media/Plants%20vs%20Zombies%20Soundtrack.%20[Main%20Menu].mp3" type="audio/mpeg">
         </audio>
       </div>
       
-      <!-- Tarjeta 3 -->
-      <div class="tarjeta-audio">
-        <span class="autor-audio">Alberto Muñoz</span>
-        <span class="nombre-audio">Emulación de la música de PvZ.mp3</span>
+      <div class="tarjeta-blanca-musica">
+        <span class="meta-autor">Alberto Muñoz</span>
+        <span class="meta-archivo">Emulación de la música de PvZ.mp3</span>
         <audio controls>
           <source src="./media/emulacion%20de%20la%20musica%20de%20pvz.mp3" type="audio/mpeg">
         </audio>
@@ -11523,117 +11518,122 @@ system_desktop
 
   </div>
 
-  <!-- ESTILOS EXCLUSIVOS ANTI-COMPRESIÓN -->
+  <!-- ESTILOS RADICALES PARA FORZAR ANCHOS REALES -->
   <style>
-    #seccion-musica {
-      padding: 40px 0;
+    /* Forzar al contenedor original de Squarespace que está roto en tu pantalla a usar el ancho completo */
+    .fe-block-5f27aa45375a143dccc6, 
+    #block-5f27aa45375a143dccc6,
+    .sqs-block-content {
       width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
       display: block !important;
-      clear: both;
+      transform: none !important;
     }
 
-    /* Grilla principal con anchos mínimos para que NUNCA se aplasten */
-    .contenedor-columnas-musica {
-      display: grid !important;
-      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) !important;
-      gap: 40px !important;
+    #seccion-musica-final {
       width: 100% !important;
-      max-width: 1100px;
-      margin: 0 auto;
-      box-sizing: border-box;
+      box-sizing: border-box !important;
+      padding: 20px 0 !important;
     }
 
-    .columna-musica-izquierda, 
-    .columna-musica-derecha {
-      display: flex !important;
-      flex-direction: column !important;
+    /* Grilla independiente que anula las restricciones de compresión lateral */
+    .grilla-musica-aislada {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important; /* Dos columnas perfectas 50/50 */
       gap: 30px !important;
       width: 100% !important;
+      max-width: 1100px !important;
+      margin: 0 auto !important;
+      box-sizing: border-box !important;
     }
 
-    /* Cuadrados con borde blanco y ancho real garantizado */
-    .tarjeta-audio {
-      border: 1.5px solid #ffffff !important;
-      border-radius: 12px !important;
-      padding: 24px !important;
-      background-color: transparent !important;
+    .caja-audio-izq, 
+    .caja-audio-der {
       display: flex !important;
       flex-direction: column !important;
-      box-sizing: border-box !important;
+      gap: 25px !important;
       width: 100% !important;
-      min-width: 280px !important;
+      min-width: 0 !important; /* Evita desbordamiento flex */
     }
 
-    /* Forzar al texto a no romperse letra por letra */
-    .autor-audio, .nombre-audio {
+    /* Diseño de los cuadrados contenedores con bordes redondeados */
+    .tarjeta-blanca-musica {
+      border: 1.5px solid #ffffff !important;
+      border-radius: 14px !important;
+      padding: 25px !important;
+      background-color: transparent !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Forzar la visualización horizontal correcta del texto */
+    .meta-autor, .meta-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
       white-space: normal !important;
-      word-break: keep-all !important;
+      word-break: keep-all !important; /* Prohibido romper palabras letra por letra */
       overflow-wrap: break-word !important;
       text-align: left !important;
     }
 
-    .autor-audio {
-      font-size: 13px !important;
+    .meta-autor {
+      font-size: 12px !important;
       color: #888888 !important;
       text-transform: uppercase !important;
-      margin-bottom: 4px !important;
+      letter-spacing: 0.05em !important;
+      margin-bottom: 5px !important;
     }
 
-    .nombre-audio {
-      font-size: 18px !important;
+    .meta-archivo {
+      font-size: 16px !important;
       color: #ffffff !important;
-      font-weight: normal !important;
-      margin-bottom: 20px !important;
+      margin-bottom: 15px !important;
     }
 
-    .tarjeta-audio audio {
+    /* Corrección del reproductor nativo */
+    .tarjeta-blanca-musica audio {
       width: 100% !important;
       display: block !important;
       margin-top: auto !important;
     }
 
-    /* Acordeón nativo limpio de fallas de Squarespace */
-    .acordeon-interno {
+    /* Menú desplegable nativo sin herencias extrañas */
+    .desplegable-limpio {
       width: 100% !important;
-      margin-bottom: 20px !important;
+      margin-bottom: 15px !important;
     }
 
-    .acordeon-item-limpio {
-      width: 100% !important;
-    }
-
-    .accordion-item__title {
+    .desplegable-limpio summary {
       font-family: 'Forum', sans-serif !important;
       color: #ffffff !important;
-      cursor: pointer;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      outline: none;
-      user-select: none;
+      cursor: pointer !important;
+      padding: 8px 0 !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+      outline: none !important;
       text-align: left !important;
     }
 
-    .accordion-item__description {
-      padding-top: 15px !important;
+    .contenido-desplegable {
+      padding: 12px 0 !important;
     }
 
-    .accordion-item__description p {
+    .contenido-desplegable p {
       font-family: 'Xanh Mono', monospace !important;
-      font-size: 14px !important;
+      font-size: 13.5px !important;
       color: #cccccc !important;
       text-align: left !important;
-      line-height: 1.5 !important;
-      margin-bottom: 12px !important;
+      line-height: 1.6 !important;
+      margin-bottom: 10px !important;
       white-space: normal !important;
     }
 
-    /* Si se ve en pantallas de celulares, se apilan verticalmente */
+    /* Transformación responsiva para móviles */
     @media (max-width: 768px) {
-      .contenedor-columnas-musica {
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
+      .grilla-musica-aislada {
+        grid-template-columns: 1fr !important; /* Se vuelve una sola columna */
       }
     }
   </style>
