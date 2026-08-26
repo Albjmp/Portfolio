@@ -113,31 +113,35 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-  <-- Intento de arreglar el CCS --->
-  <-- 1. Forzar el centrado de todos los textos, títulos y listas -->
-h1, h2, h3, h4, p, ul, li {
-  text-align: center !important;
+  /* 1. Forzar el centrado absoluto en el cuerpo, secciones y Sobre Mí */
+h1, h2, h3, h4, p, ul, li, .sqs-block-html, .sqs-block-html-content, .page-section *, #sections * {
+  text-align: center;
 }
 
-<-- 2. Arreglar el desfase de las listas (viñetas) para que queden perfectamente centradas -->
+/* 2. Corrección de listas y viñetas */
 ul {
-  list-style-position: inside !important;
-  padding-left: 0 !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  list-style-position: inside;
+  padding-left: 0;
+  margin: 0 auto;
 }
 
-<-- 3. Evitar que los textos se fuercen a dos líneas de forma abrupta -->
-h1, h2, h3, h4, p, li {
-  white-space: normal !important; <-- Permite saltos naturales por espacio, no forzados -->
-  word-break: keep-all !important; <-- Evita que las palabras se rompan a la mitad -->
-  overflow-wrap: break-word !important;
+/* 3. Evitar el quiebre de línea en el teléfono y enlaces del Footer */
+footer *, .site-footer *, a[href^="tel:"], p {
+  white-space: nowrap; /* Impide por completo que se rompa en dos líneas */
 }
 
-<-- 4. Asegurar que los contenedores de Squarespace usen todo el ancho disponible -->
-.sqs-block-html, .sqs-block-html-content {
-  width: 100% !important;
+/* 4. Permitir saltos normales solo en textos largos (para que los párrafos no se salgan de la pantalla) */
+p, li {
+  white-space: normal; 
 }
+
+/* 5. Excepción estricta: Forzar al teléfono a mantenerse unido pase lo que pase */
+a[href^="tel:"], .footer-render p, footer p {
+  white-space: pre; 
+  display: inline-block;
+  word-break: keep-all;
+}
+
 
   
 </style><script type="text/javascript" crossorigin="anonymous" defer="true" nomodule="nomodule" src="https://assets.squarespace.com/@sqs/polyfiller/1.6/legacy.js"></script>
