@@ -11471,24 +11471,24 @@ system_desktop
 
 </div>
 </div></div></div><!-- SECCIÓN DE MÚSICA -->
-<section class="music-final-section">
-  <div class="music-final-wrapper">
+<section class="music-viewport-section">
+  <div class="music-viewport-grid">
     
     <!-- COLUMNA IZQUIERDA -->
-    <div class="music-final-panel panel-left">
+    <div class="music-v-col">
       
       <!-- Acordeón 1 -->
-      <details class="music-final-toggle">
+      <details class="music-v-acc">
         <summary>Lo que se pidió</summary>
-        <div class="toggle-final-content">
+        <div class="v-acc-content">
           <p>Componer una pieza musical que capture una ambientación de aventura relajada para un videojuego.</p>
         </div>
       </details>
 
       <!-- Acordeón 2 -->
-      <details class="music-final-toggle">
+      <details class="music-v-acc">
         <summary>Cómo se logró</summary>
-        <div class="toggle-final-content">
+        <div class="v-acc-content">
           <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
           <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
           <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
@@ -11497,10 +11497,10 @@ system_desktop
       </details>
 
       <!-- Tarjeta MP3: Aventura Relajada -->
-      <div class="music-final-box premium-track">
-        <div class="box-final-header">
-          <span class="box-final-author">Alberto Muñoz</span>
-          <h4 class="box-final-title">Música de aventura relajada</h4>
+      <div class="music-v-card main-track">
+        <div class="v-card-text">
+          <span class="v-card-author">Alberto Muñoz</span>
+          <h4 class="v-card-title">Música de aventura relajada</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Musica de aventura relajada.mp3"></audio>
       </div>
@@ -11508,22 +11508,22 @@ system_desktop
     </div>
 
     <!-- COLUMNA DERECHA -->
-    <div class="music-final-panel panel-right">
+    <div class="music-v-col">
       
       <!-- Tarjeta MP3: PvZ Main Menu -->
-      <div class="music-final-box">
-        <div class="box-final-header">
-          <span class="box-final-author">Alberto Muñoz</span>
-          <h4 class="box-final-title">Plants vs Zombies Soundtrack [Main Menu]</h4>
+      <div class="music-v-card">
+        <div class="v-card-text">
+          <span class="v-card-author">Alberto Muñoz</span>
+          <h4 class="v-card-title">Plants vs Zombies Soundtrack [Main Menu]</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Plants vs Zombies Soundtrack [Main Menu].mp3"></audio>
       </div>
 
       <!-- Tarjeta MP3: Emulación PvZ -->
-      <div class="music-final-box">
-        <div class="box-final-header">
-          <span class="box-final-author">Alberto Muñoz</span>
-          <h4 class="box-final-title">Emulación de la música de PvZ</h4>
+      <div class="music-v-card">
+        <div class="v-card-text">
+          <span class="v-card-author">Alberto Muñoz</span>
+          <h4 class="v-card-title">Emulación de la música de PvZ</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Emulacion de la musica de PvZ.mp3"></audio>
       </div>
@@ -11533,47 +11533,50 @@ system_desktop
   </div>
 </section>
 
-<!-- ESTILOS FINALES CON MARGEN DE RETIRADA -->
+<!-- CSS INMUNE A CONTENEDORES PADRE -->
 <style>
-/* Reset estructural estricto */
-.music-final-section,
-.music-final-section * {
+/* Desactivar cualquier herencia dañina en el bloque */
+.music-viewport-section,
+.music-viewport-section * {
   box-sizing: border-box !important;
   float: none !important;
 }
 
-/* Contenedor base que se desplaza horizontalmente */
-.music-final-section {
+/* Forzar que la sección ocupe un bloque vertical independiente en el flujo */
+.music-viewport-section {
   display: block !important;
   position: relative !important;
   width: 100% !important;
-  /* Añadimos un margen izquierdo para empujar TODO el bloque fuera de la barra negra */
-  margin-left: 80px !important; 
-  padding: 40px 0 !important;
+  min-height: 550px !important; /* Mantiene el espacio en alto para que no se superponga con el pie de página */
+  margin: 50px 0 !important;
   font-family: system-ui, -apple-system, sans-serif !important;
 }
 
-/* La cuadrícula flexible de las dos columnas de música */
-.music-final-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 40px !important;
-  width: calc(100% - 100px) !important; /* Resta espacio para no salirse por la derecha */
-  max-width: 1100px !important;
+/* El truco definitivo: Forzar el contenedor usando coordenadas fijas basadas en la pantalla */
+.music-viewport-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important; /* Dos columnas perfectamente idénticas */
+  gap: 30px !important;
+  
+  position: absolute !important;
+  left: 200px !important; /* Empuja masivamente todo el diseño a la derecha para saltarse la barra invisible */
+  top: 0 !important;
+  
+  width: calc(100% - 220px) !important; /* Ajusta el ancho para que no se desborde por la derecha */
+  max-width: 1000px !important;
 }
 
-/* Configuración interna simétrica de los paneles */
-.music-final-panel {
-  flex: 1 1 50% !important;
-  width: 50% !important;
+/* Columnas seguras */
+.music-v-col {
   display: flex !important;
   flex-direction: column !important;
   gap: 20px !important;
-  min-width: 0 !important;
+  min-width: 280px !important; /* No permite que las cajas se vuelvan hileras verticales finas */
+  width: 100% !important;
 }
 
 /* Estilos de los Acordeones */
-.music-final-toggle {
+.music-v-acc {
   width: 100% !important;
   background-color: #f8f9fa !important;
   border: 1px solid #e2e8f0 !important;
@@ -11581,49 +11584,49 @@ system_desktop
   padding: 14px 18px !important;
 }
 
-.music-final-toggle[open] {
+.music-v-acc[open] {
   background-color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
 }
 
-.music-final-toggle summary {
+.music-v-acc summary {
   font-weight: 600 !important;
   cursor: pointer !important;
   font-size: 1.05rem !important;
   color: #1a202c !important;
 }
 
-.toggle-final-content {
+.v-acc-content {
   margin-top: 12px !important;
   font-size: 0.95rem !important;
   line-height: 1.6 !important;
   color: #4a5568 !important;
 }
 
-/* Estilos de las Tarjetas de MP3 */
-.music-final-box {
+/* Estilos de las Tarjetas */
+.music-v-card {
   width: 100% !important;
   background-color: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
   border-radius: 12px !important;
-  padding: 24px !important;
+  padding: 22px !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 16px !important;
 }
 
-.music-final-box.premium-track {
+.music-v-card.main-track {
   border-left: 6px solid #3182ce !important; 
 }
 
-.box-final-header {
+.v-card-text {
   display: flex !important;
   flex-direction: column !important;
   gap: 6px !important;
 }
 
-.box-final-author {
+.v-card-author {
   font-size: 0.8rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
@@ -11631,32 +11634,35 @@ system_desktop
   font-weight: 700 !important;
 }
 
-.box-final-title {
+.v-card-title {
   margin: 0 !important;
-  font-size: 1.15rem !important;
+  font-size: 1.1rem !important;
   font-weight: 600 !important;
   color: #2d3748 !important;
 }
 
-.music-final-box audio {
+.music-v-card audio {
   width: 100% !important;
   display: block !important;
 }
 
-/* Adaptación para pantallas móviles */
+/* Adaptación fluida para pantallas pequeñas */
+@media (max-width: 992px) {
+  .music-viewport-grid {
+    left: 120px !important;
+    width: calc(100% - 140px) !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .music-final-section {
-    margin-left: 0 !important; /* En móviles quitamos el margen para usar pantalla completa */
-    padding: 20px !important;
+  .music-viewport-section {
+    min-height: 1100px !important;
   }
-  .music-final-wrapper {
-    flex-direction: column !important;
-    width: 100% !important;
+  .music-viewport-grid {
+    grid-template-columns: 1fr !important; /* Una sola columna en móvil */
+    left: 20px !important;
+    width: calc(100% - 40px) !important;
     gap: 24px !important;
-  }
-  .music-final-panel {
-    width: 100% !important;
-    flex: 1 1 100% !important;
   }
 }
 </style>
