@@ -113,33 +113,34 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
-  /* 1. Forzar al teléfono a mantenerse en una sola línea completa */
-.sqs-block-html, .sqs-html-content, p, span, a {
-  white-space: normal;
-}
-
-/* Regla ultra específica para el bloque de contacto o cualquier texto con guiones */
-p, span, a {
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
-}
-
-/* 2. Evitar saltos en números telefónicos y correos */
-a[href^="tel:"], .sqs-html-content p {
-  /* Si el texto contiene el patrón de teléfono, prohíbe el quiebre */
-  white-space: nowrap !important;
-}
-
-/* Permitir saltos normales SOLO en el correo si es extremadamente largo para pantallas móviles */
-.sqs-html-content p:has(span) {
-  white-space: normal !important;
-}
-
-/* 3. Asegurar que la caja del footer tenga el 100% del ancho para que quepa todo */
-.sqs-block-html-content, .sqs-block-html {
+/* 1. Resetear y centrar los bloques contenedores de Squarespace */
+.sqs-block-html, .sqs-block-html-content, .sqs-html-content {
   width: 100% !important;
-  max-width: 100% !important;
+  max-width: 800px !important; /* Limita el ancho para que sea idéntico al fondo gris */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
 }
+
+/* 2. Forzar alineación y espaciado limpio del texto */
+.sqs-html-content p, .sqs-html-content h1, .sqs-html-content h2, .sqs-html-content h3 {
+  text-align: center !important;
+  padding-left: 5% !important;  /* Da un margen interno para que no toque los bordes */
+  padding-right: 5% !important;
+}
+
+/* 3. Asegurar que los textos no se rompan a la mitad de una palabra */
+.sqs-html-content * {
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+
+/* 4. Proteger el teléfono en el footer contra saltos de línea */
+footer *, .site-footer *, a[href^="tel:"] {
+  white-space: nowrap !important;
+  display: inline-block !important;
+}
+
 
 
 
