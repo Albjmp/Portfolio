@@ -11470,8 +11470,8 @@ system_desktop
 
 
 </div>
-</div></div></div><!-- CONTENEDOR PRINCIPAL TOTALMENTE INDEPENDIENTE DE SQUARESPACE -->
-<section class="seccion-musica-limpia-github">
+</div></div></div><!-- CONTENEDOR 100% INDEPENDIENTE CON BORRADO DE HERENCIA -->
+<section id="mi-bloque-musica-independiente" class="seccion-musica-limpia-github">
   
   <div class="contenedor-columnas-musica">
     
@@ -11483,7 +11483,7 @@ system_desktop
         <h4 class="titulo-info-musica">Lo que se pidió</h4>
         <p class="texto-info-musica">Componer una pieza musical que capture una ambientación de aventura relajada para un videojuego.</p>
         
-        <!-- Acordeón nativo HTML impecable -->
+        <!-- Menú desplegable nativo HTML -->
         <details class="acordeon-github">
           <summary>Cómo se logró</summary>
           <div class="contenido-acordeon-github">
@@ -11504,7 +11504,7 @@ system_desktop
       
     </div>
     
-    <!-- COLUMNA DERECHA: Los otros dos audios ordenados de arriba a abajo -->
+    <!-- COLUMNA DERECHA: Los otros dos audios apilados simétricamente -->
     <div class="columna-musica-der">
       
       <!-- Tarjeta de Audio 2 -->
@@ -11525,34 +11525,49 @@ system_desktop
 
   </div>
 
-  <!-- HOJA DE ESTILOS PURA Y AISLADA PARA GITHUB PAGES -->
+  <!-- ESTILOS QUIRÚRGICOS CON INVALIDEZ DE CONTENEDOR ENANO -->
   <style>
-    /* Eliminamos cualquier comportamiento absoluto previo heredado del clon de Squarespace */
-    .seccion-musica-limpia-github,
-    .seccion-musica-limpia-github *,
-    .contenedor-columnas-musica,
-    .columna-musica-izq,
-    .columna-musica-der,
-    .tarjeta-audio-github {
-      position: static !important;
+    /* ========================================================
+       1. LIBERAR LOS DIVS EXTERNOS QUE APLASTAN EL CONTENIDO
+       Buscamos las clases de los bloques de Squarespace que están 
+       envolviendo esta sección y anulamos sus anchos en píxeles fijos.
+       ======================================================== */
+    div[class*="fe-block-yui_"],
+    div[class*="fe-block-12c"],
+    div[class*="fe-block-1b9"],
+    .sqs-block,
+    .sqs-block-content,
+    .fe-block {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      height: auto !important;
       transform: none !important;
       box-sizing: border-box !important;
+      display: block !important;
     }
 
+    /* ========================================================
+       2. CREAR NUESTRA GRILA DE DOS COLUMNAS DE ANCHO COMPLETO
+       ======================================================== */
     .seccion-musica-limpia-github {
       display: block !important;
       width: 100% !important;
       max-width: 1100px !important;
       margin: 40px auto !important;
       padding: 0 20px !important;
+      box-sizing: border-box !important;
     }
 
-    /* Grilla de dos columnas perfecta distribuyendo 50% y 50% reales */
     .contenedor-columnas-musica {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important;
+      grid-template-columns: 1fr 1fr !important; /* Mitad y mitad perfectas de la pantalla */
       gap: 40px !important;
       width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .columna-musica-izq,
@@ -11560,13 +11575,14 @@ system_desktop
       display: flex !important;
       flex-direction: column !important;
       width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .columna-musica-der {
-      gap: 25px !important; /* Espacio de separación vertical entre los dos audios de la derecha */
+      gap: 25px !important; /* Distancia de separación vertical entre los dos audios derechos */
     }
 
-    /* Estilos de los textos informativos superiores (Fuera de la tarjeta) */
+    /* Estilos de los textos exteriores (Encima y fuera de la caja blanca) */
     .info-pedida-lograda {
       width: 100% !important;
       margin-bottom: 25px !important;
@@ -11617,15 +11633,18 @@ system_desktop
       margin-bottom: 10px !important;
     }
 
-    /* DISEÑO DE LOS CUADRADOS DE AUDIO CON CONTORNO BLANCO */
+    /* ========================================================
+       3. DISEÑO DE LOS CUADRADOS DE AUDIO CON CONTORNO BLANCO
+       ======================================================== */
     .tarjeta-audio-github {
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: transparent !important;
+      background-color: #000000 !important; /* Fondo negro sólido para tapar imperfecciones */
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
+      box-sizing: border-box !important;
     }
 
     /* Forzar al texto de las tarjetas a mantenerse 100% horizontal */
@@ -11634,7 +11653,7 @@ system_desktop
       font-family: 'Forum', sans-serif !important;
       display: block !important;
       white-space: normal !important;
-      word-break: keep-all !important; 
+      word-break: keep-all !important; /* Prohibido caer en cascada letra por letra */
       overflow-wrap: break-word !important;
       text-align: left !important;
     }
@@ -11657,7 +11676,7 @@ system_desktop
       display: block !important;
     }
 
-    /* Adaptación fluida para dispositivos móviles */
+    /* Adaptación móvil */
     @media (max-width: 768px) {
       .contenedor-columnas-musica {
         grid-template-columns: 1fr !important;
@@ -11666,6 +11685,7 @@ system_desktop
     }
   </style>
 </section>
+
 
 
 
