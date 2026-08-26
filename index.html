@@ -11472,18 +11472,14 @@ system_desktop
 </div>
 </div></div></div><section id="mi-seccion-musica-limpia">
   
-  <!-- CONTENEDOR PRINCIPAL EN DOS COLUMNAS -->
   <div class="grilla-musica-portafolio">
     
-    <!-- COLUMNA IZQUIERDA: Textos afuera y arriba del primer bloque de audio -->
+    <!-- COLUMNA IZQUIERDA -->
     <div class="columna-izquierda-musica">
-      
-      <!-- Textos requeridos fuera y encima del bloque -->
       <div class="bloque-informacion-adicional">
         <h4 class="subtitulo-musica-info">Lo que se pidió</h4>
         <p class="descripcion-musica-info">Componer una pieza musical que capture una ambientación de aventura relajada para un videojuego.</p>
         
-        <!-- Acordeón nativo fuera y encima del audio -->
         <details class="acordeon-limpio-fuera">
           <summary>Cómo se logró</summary>
           <div class="contenido-acordeon-fuera">
@@ -11495,52 +11491,60 @@ system_desktop
         </details>
       </div>
 
-      <!-- Cuadrado con borde que contiene ÚNICAMENTE el primer reproductor -->
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
         <span class="info-archivo">Música de aventura relajada.mp3</span>
         <audio controls src="./media/musica%20de%20aventura%20relajada.mp3"></audio>
       </div>
-      
     </div>
     
-    <!-- COLUMNA DERECHA: Los otros dos audios ordenados verticalmente -->
+    <!-- COLUMNA DERECHA -->
     <div class="columna-derecha-musica">
-      
-      <!-- Tarjeta de Audio 2 -->
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
         <span class="info-archivo">Plants vs Zombies Soundtrack [Main Menu].mp3</span>
         <audio controls src="./media/Plants%20vs%20Zombies%20Soundtrack.%20[Main%20Menu].mp3"></audio>
       </div>
       
-      <!-- Tarjeta de Audio 3 -->
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
         <span class="info-archivo">Emulación de la música de PvZ.mp3</span>
         <audio controls src="./media/emulacion%20de%20la%20musica%20de%20pvz.mp3"></audio>
       </div>
-      
     </div>
 
   </div>
 
-  <!-- ESTILOS LOCALIZADOS: PROTEGEN EL RESTO DE TU PÁGINA -->
+  <!-- ESTILOS AVANZADOS QUIRÚRGICOS -->
   <style>
-    /* RESETEO LOCALIZADO: No altera ninguna otra sección de GitHub */
+    /* ========================================================
+       OBLIGAR A LOS CONTENEDORES INVISIBLES DE SQUARESPACE A MEDIR EL 100%
+       Esto evita de raíz que las columnas se aplasten hacia la izquierda
+       ======================================================== */
+    .fe-block-5f27aa45375a143dccc6,
+    #block-5f27aa45375a143dccc6,
+    #block-5f27aa45375a143dccc6 .sqs-block-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 100% !important;
+      grid-column: 1 / -1 !important; /* Fuerza al bloque a ocupar todas las columnas de Squarespace */
+      position: relative !important;
+      left: 0 !important;
+      transform: none !important;
+    }
+
     #mi-seccion-musica-limpia {
       display: block !important;
       width: 100% !important;
       max-width: 1100px !important;
-      margin: 50px auto !important;
-      padding: 0 20px !important;
+      margin: 30px auto !important;
       box-sizing: border-box !important;
     }
 
-    /* Creación de rejilla nativa limpia sin chocar con contenedores superiores */
+    /* Rejilla de dos columnas reales */
     .grilla-musica-portafolio {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* Dos columnas estables e idénticas */
+      grid-template-columns: 1fr 1fr !important;
       gap: 40px !important;
       width: 100% !important;
       box-sizing: border-box !important;
@@ -11555,10 +11559,9 @@ system_desktop
     }
 
     .columna-derecha-musica {
-      gap: 25px !important; /* Espaciado entre las dos tarjetas derechas */
+      gap: 25px !important;
     }
 
-    /* Elementos informativos superiores (Fuera del bloque de audio) */
     .bloque-informacion-adicional {
       width: 100% !important;
       margin-bottom: 25px !important;
@@ -11571,7 +11574,6 @@ system_desktop
       color: #ffffff !important;
       margin: 0 0 8px 0 !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
     }
 
     .descripcion-musica-info {
@@ -11582,7 +11584,6 @@ system_desktop
       margin: 0 0 15px 0 !important;
     }
 
-    /* Estilo del Acordeón Desplegable (Fuera de la caja) */
     .acordeon-limpio-fuera {
       width: 100% !important;
       margin-top: 10px !important;
@@ -11595,7 +11596,6 @@ system_desktop
       cursor: pointer !important;
       padding: 8px 0 !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-      outline: none !important;
     }
 
     .contenido-acordeon-fuera {
@@ -11610,19 +11610,18 @@ system_desktop
       margin-bottom: 10px !important;
     }
 
-    /* CUADRADOS DE AUDIO CON CONTORNO BLANCO */
+    /* DISEÑO DE LAS TARJETAS */
     .tarjeta-audio-portafolio {
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: transparent !important;
+      background-color: #000000 !important; /* Evita transparencias raras con fondos de Squarespace */
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
-    /* Asegurar lectura horizontal del texto y evitar caídas letra por letra */
     .info-autor, .info-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
@@ -11648,18 +11647,18 @@ system_desktop
     .tarjeta-audio-portafolio audio {
       width: 100% !important;
       display: block !important;
-      margin-top: auto !important;
     }
 
-    /* Responsive para teléfonos celulares */
+    /* Responsive para móviles */
     @media (max-width: 768px) {
       .grilla-musica-portafolio {
-        grid-template-columns: 1fr !important; /* Una sola fila vertical en móviles */
+        grid-template-columns: 1fr !important;
         gap: 30px !important;
       }
     }
   </style>
 </section>
+
 
 
 
