@@ -11471,38 +11471,27 @@ system_desktop
 
 </div>
 </div></div></div><section id="seccion-musica">
-  <h2 class="titulo-musica-principal">MÚSICA</h2>
   
   <div class="contenedor-columnas-musica">
     
-    <!-- COLUMNA IZQUIERDA: Acordeón + Primer Audio -->
+    <!-- COLUMNA IZQUIERDA: Un solo audio con su información -->
     <div class="columna-musica-izquierda">
       <div class="tarjeta-audio">
         <span class="autor-audio">Alberto Muñoz</span>
-        <span class="nombre-audio">musica de aventura relajada.mp3</span>
+        <span class="nombre-audio">Música de aventura relajada.mp3</span>
         
-        <!-- Aquí metemos tu bloque de acordeón original adaptado -->
         <div class="acordeon-interno">
-          <ul class="accordion-items-container">
-            <li class="accordion-item">
-              <h4 class="accordion-item__title-wrapper">
-                <button class="accordion-item__click-target">
-                  <span class="accordion-item__title">Cómo se logró</span>
-                </button>
-              </h4>
-              <div class="accordion-item__dropdown">
-                <div class="accordion-item__description">
-                  <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
-                  <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
-                  <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
-                  <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <details class="acordeon-item-limpio">
+            <summary class="accordion-item__title">Cómo se logró</summary>
+            <div class="accordion-item__description">
+              <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
+              <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
+              <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
+              <p>El bongó, junto a la flauta, sirve para restarle seriedad a la composición y permitir que la composición se convierta en una de aventura relajada.</p>
+            </div>
+          </details>
         </div>
         
-        <!-- Primer reproductor de audio -->
         <audio controls>
           <source src="./media/musica%20de%20aventura%20relajada.mp3" type="audio/mpeg">
         </audio>
@@ -11524,7 +11513,7 @@ system_desktop
       <!-- Tarjeta 3 -->
       <div class="tarjeta-audio">
         <span class="autor-audio">Alberto Muñoz</span>
-        <span class="nombre-audio">emulacion de la musica de pvz.mp3</span>
+        <span class="nombre-audio">Emulación de la música de PvZ.mp3</span>
         <audio controls>
           <source src="./media/emulacion%20de%20la%20musica%20de%20pvz.mp3" type="audio/mpeg">
         </audio>
@@ -11534,103 +11523,122 @@ system_desktop
 
   </div>
 
-  <!-- ESTILOS EXCLUSIVOS PARA DARLE FORMA A LA SECCIÓN DE MÚSICA -->
+  <!-- ESTILOS EXCLUSIVOS ANTI-COMPRESIÓN -->
   <style>
     #seccion-musica {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 40px 0;
+      width: 100% !important;
+      display: block !important;
+      clear: both;
     }
 
-    .titulo-musica-principal {
-      text-align: center;
-      font-family: 'Forum', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.1em;
-      margin-bottom: 30px;
-      color: #ffffff;
-    }
-
-    /* Grilla principal: Distribuye izquierda y derecha */
+    /* Grilla principal con anchos mínimos para que NUNCA se aplasten */
     .contenedor-columnas-musica {
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-      width: 100%;
+      display: grid !important;
+      grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) !important;
+      gap: 40px !important;
+      width: 100% !important;
+      max-width: 1100px;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .columna-musica-izquierda, 
     .columna-musica-derecha {
-      flex: 1; /* Mitad y mitad de la pantalla */
-      display: flex;
-      flex-direction: column;
-      gap: 25px; /* Espaciado entre tarjetas apiladas */
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 30px !important;
+      width: 100% !important;
     }
 
-    /* Cuadrados con borde blanco alrededor de los audios */
+    /* Cuadrados con borde blanco y ancho real garantizado */
     .tarjeta-audio {
-      border: 1.5px solid #ffffff;
-      border-radius: 10px;
-      padding: 24px;
-      background-color: transparent;
-      display: flex;
-      flex-direction: column;
-      box-sizing: border-box;
-      width: 100%;
+      border: 1.5px solid #ffffff !important;
+      border-radius: 12px !important;
+      padding: 24px !important;
+      background-color: transparent !important;
+      display: flex !important;
+      flex-direction: column !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      min-width: 280px !important;
     }
 
-    /* Meta-datos de los archivos */
+    /* Forzar al texto a no romperse letra por letra */
+    .autor-audio, .nombre-audio {
+      font-family: 'Forum', sans-serif !important;
+      display: block !important;
+      white-space: normal !important;
+      word-break: keep-all !important;
+      overflow-wrap: break-word !important;
+      text-align: left !important;
+    }
+
     .autor-audio {
-      font-family: 'Forum', sans-serif;
-      font-size: 13px;
-      color: #888888;
-      text-transform: uppercase;
-      margin-bottom: 2px;
+      font-size: 13px !important;
+      color: #888888 !important;
+      text-transform: uppercase !important;
+      margin-bottom: 4px !important;
     }
 
     .nombre-audio {
-      font-family: 'Forum', sans-serif;
-      font-size: 16px;
-      color: #ffffff;
-      font-weight: bold;
-      margin-bottom: 15px;
+      font-size: 18px !important;
+      color: #ffffff !important;
+      font-weight: normal !important;
+      margin-bottom: 20px !important;
     }
 
-    /* Ajuste para que los reproductores nativos quepan bien en la tarjeta */
     .tarjeta-audio audio {
       width: 100% !important;
-      margin-top: 10px;
+      display: block !important;
+      margin-top: auto !important;
     }
 
-    /* Ajustes visuales para el bloque de acordeón que preservamos */
+    /* Acordeón nativo limpio de fallas de Squarespace */
     .acordeon-interno {
-      width: 100%;
-      margin-bottom: 15px;
-      text-align: left !important;
+      width: 100% !important;
+      margin-bottom: 20px !important;
     }
-    
-    .acordeon-interno p {
-      font-family: 'Xanh Mono', monospace;
-      font-size: 14px;
-      color: #dddddd;
-      text-align: left !important;
-      margin-bottom: 10px;
+
+    .acordeon-item-limpio {
+      width: 100% !important;
     }
 
     .accordion-item__title {
-      font-family: 'Forum', sans-serif;
-      color: #ffffff;
-      font-weight: bold;
+      font-family: 'Forum', sans-serif !important;
+      color: #ffffff !important;
+      cursor: pointer;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      outline: none;
+      user-select: none;
+      text-align: left !important;
     }
 
-    /* Hacer que en celulares se vea uno debajo del otro */
+    .accordion-item__description {
+      padding-top: 15px !important;
+    }
+
+    .accordion-item__description p {
+      font-family: 'Xanh Mono', monospace !important;
+      font-size: 14px !important;
+      color: #cccccc !important;
+      text-align: left !important;
+      line-height: 1.5 !important;
+      margin-bottom: 12px !important;
+      white-space: normal !important;
+    }
+
+    /* Si se ve en pantallas de celulares, se apilan verticalmente */
     @media (max-width: 768px) {
       .contenedor-columnas-musica {
-        flex-direction: column;
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
       }
     }
   </style>
 </section>
+
 
 
   
