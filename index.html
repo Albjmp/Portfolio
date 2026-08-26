@@ -11471,24 +11471,24 @@ system_desktop
 
 </div>
 </div></div></div><!-- SECCIÓN DE MÚSICA -->
-<section class="music-section">
-  <div class="music-container">
+<section class="music-section-fixed">
+  <div class="music-container-fixed">
     
     <!-- COLUMNA IZQUIERDA -->
-    <div class="music-column column-left">
+    <div class="music-column-fixed column-left">
       
       <!-- Acordeón 1 -->
-      <details class="music-accordion">
+      <details class="music-accordion-fixed">
         <summary>Lo que se pidió</summary>
-        <div class="accordion-content">
+        <div class="accordion-content-fixed">
           <p>Componer una pieza musical que capture una ambientación de aventura relajada para un videojuego.</p>
         </div>
       </details>
 
       <!-- Acordeón 2 -->
-      <details class="music-accordion">
+      <details class="music-accordion-fixed">
         <summary>Cómo se logró</summary>
-        <div class="accordion-content">
+        <div class="accordion-content-fixed">
           <p>Se utilizaron un piano, una flauta, y un bajo, los tres en la escala de Fa mayor. También se implementó un bongó como instrumento de percusión.</p>
           <p>El piano se utilizó como la columna vertebral de la composición, aportando peso detrás de la ligereza brindada por la flauta la cual toca los mismos acordes que el piano.</p>
           <p>El bajo por su parte toca el primer acorde que corresponde a un cuarteto de acordes tocados por el piano y la flauta.</p>
@@ -11497,10 +11497,10 @@ system_desktop
       </details>
 
       <!-- Tarjeta MP3: Aventura Relajada -->
-      <div class="audio-card main-track">
-        <div class="audio-info">
-          <span class="audio-author">Alberto Muñoz</span>
-          <h4 class="audio-title">Música de aventura relajada</h4>
+      <div class="audio-card-fixed main-track">
+        <div class="audio-info-fixed">
+          <span class="audio-author-fixed">Alberto Muñoz</span>
+          <h4 class="audio-title-fixed">Música de aventura relajada</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Musica de aventura relajada.mp3"></audio>
       </div>
@@ -11508,22 +11508,22 @@ system_desktop
     </div>
 
     <!-- COLUMNA DERECHA -->
-    <div class="music-column column-right">
+    <div class="music-column-fixed column-right">
       
       <!-- Tarjeta MP3: PvZ Main Menu -->
-      <div class="audio-card">
-        <div class="audio-info">
-          <span class="audio-author">Alberto Muñoz</span>
-          <h4 class="audio-title">Plants vs Zombies Soundtrack [Main Menu]</h4>
+      <div class="audio-card-fixed">
+        <div class="audio-info-fixed">
+          <span class="audio-author-fixed">Alberto Muñoz</span>
+          <h4 class="audio-title-fixed">Plants vs Zombies Soundtrack [Main Menu]</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Plants vs Zombies Soundtrack [Main Menu].mp3"></audio>
       </div>
 
       <!-- Tarjeta MP3: Emulación PvZ -->
-      <div class="audio-card">
-        <div class="audio-info">
-          <span class="audio-author">Alberto Muñoz</span>
-          <h4 class="audio-title">Emulación de la música de PvZ</h4>
+      <div class="audio-card-fixed">
+        <div class="audio-info-fixed">
+          <span class="audio-author-fixed">Alberto Muñoz</span>
+          <h4 class="audio-title-fixed">Emulación de la música de PvZ</h4>
         </div>
         <audio controls src="audio/Alberto Munoz Emulacion de la musica de PvZ.mp3"></audio>
       </div>
@@ -11533,133 +11533,130 @@ system_desktop
   </div>
 </section>
 
-<!-- ESTILOS CSS CORREGIDOS -->
+<!-- ESTILOS CSS AGRESIVOS PARA ROMPER LIMITACIONES -->
 <style>
-/* Forzar que todos los elementos calculen bien sus dimensiones */
-.music-section, 
-.music-section *, 
-.music-section *::before, 
-.music-section *::after {
-  box-sizing: border-box;
+/* Forzar dimensiones correctas ignorando estilos externos */
+.music-section-fixed,
+.music-section-fixed *,
+.music-section-fixed *::before,
+.music-section-fixed *::after {
+  box-sizing: border-box !important;
+  float: none !important; /* Elimina cualquier float heredado */
 }
 
-/* Contenedor principal de la sección */
-.music-section {
-  width: 100%;
-  display: block;
-  padding: 40px 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Forzar que la sección ocupe el ancho disponible */
+.music-section-fixed {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+  clear: both !important;
+  padding: 40px 0 !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
 }
 
-/* Contenedor flexible ocupando todo el ancho de su sección padre */
-.music-container {
-  display: flex;
-  gap: 30px; /* Espacio de separación horizontal entre columnas */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Contenedor flexible con ancho mínimo garantizado */
+.music-container-fixed {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 30px !important;
+  width: 100% !important;
+  max-width: 1100px !important; /* Ajusta este número según el ancho que desees en tu web */
+  margin: 0 auto !important;
+  padding: 0 20px !important;
 }
 
-/* Columnas balanceadas que no se aplastan */
-.music-column {
-  flex: 1 1 0%; /* Permite crecer y ocupar el 50% exacto cada una */
-  min-width: 0;   /* Evita el colapso de texto interno en Flexbox */
-  display: flex;
-  flex-direction: column;
-  gap: 20px;     /* Separación vertical entre tarjetas */
+/* Forzar que las columnas se dividan al 50% y no colapsen */
+.music-column-fixed {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  flex: 1 1 50% !important; /* Fuerza 50% de ocupación */
+  width: 50% !important;       /* Garantiza el tamaño */
+  min-width: 280px !important; /* Evita que colapsen por completo */
 }
 
-/* Estilos de los Acordeones HTML nativos (<details>) */
-.music-accordion {
-  width: 100%;
-  background-color: #f8f9fa;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 14px 18px;
-  transition: all 0.3s ease;
+/* Estilos de los Acordeones */
+.music-accordion-fixed {
+  width: 100% !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 14px 18px !important;
 }
 
-.music-accordion[open] {
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.music-accordion-fixed[open] {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
-.music-accordion summary {
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-  font-size: 1.05rem;
-  color: #1a202c;
+.music-accordion-fixed summary {
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  font-size: 1.05rem !important;
+  color: #1a202c !important;
 }
 
-.accordion-content {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #4a5568;
+.accordion-content-fixed {
+  margin-top: 12px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  color: #4a5568 !important;
 }
 
-.accordion-content p {
-  margin-bottom: 8px;
+/* Estilos de las Tarjetas */
+.audio-card-fixed {
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
 }
 
-.accordion-content p:last-child {
-  margin-bottom: 0;
+.audio-card-fixed.main-track {
+  border-left: 6px solid #3182ce !important; 
 }
 
-/* Estilos de los cuadros contenedores de audio (Cards) */
-.audio-card {
-  width: 100%;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.audio-info-fixed {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
 }
 
-/* Detalle visual para la canción principal (Columna Izquierda) */
-.audio-card.main-track {
-  border-left: 6px solid #3182ce; 
+.audio-author-fixed {
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #718096 !important;
+  font-weight: 700 !important;
 }
 
-.audio-info {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.audio-title-fixed {
+  margin: 0 !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #2d3748 !important;
+  white-space: normal !important; /* Permite salto de línea en títulos largos */
 }
 
-.audio-author {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #718096;
-  font-weight: 700;
+.audio-card-fixed audio {
+  width: 100% !important;
+  display: block !important;
 }
 
-.audio-title {
-  margin: 0;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #2d3748;
-  word-wrap: break-word; /* Asegura que títulos largos hagan salto de línea */
-}
-
-/* Ajuste del reproductor por defecto */
-.audio-card audio {
-  width: 100%;
-  display: block;
-  outline: none;
-}
-
-/* Adaptación responsive para celulares y pantallas pequeñas */
+/* Comportamiento para celulares */
 @media (max-width: 768px) {
-  .music-container {
-    flex-direction: column;
-    gap: 24px;
+  .music-container-fixed {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .music-column-fixed {
+    width: 100% !important;
+    flex: 1 1 100% !important;
   }
 }
 </style>
