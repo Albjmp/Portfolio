@@ -124,14 +124,27 @@
   text-align: center !important;
 }
 
-/* 3. Arreglo exclusivo para el teléfono en el Footer */
+/* 1. Aplicar el mismo diseño del correo al texto del teléfono */
 footer a[href^="tel:"], 
-.site-footer a[href^="tel:"], 
-footer p {
+footer p:nth-of-type(1),
+.footer p:nth-of-type(1) {
+  font-family: 'Forum', sans-serif !important;
+  font-size: clamp(14px, 4vw, 24px) !important; /* Mismo tamaño responsivo que el correo */
+  text-transform: uppercase !important;       /* Fuerza las mayúsculas si tiene texto */
+  letter-spacing: 0.05em !important;          /* Copia el espaciado entre letras */
+  
+  /* 2. Mantener la protección para que NO se rompa en dos líneas */
   white-space: nowrap !important;
   word-break: keep-all !important;
   display: inline-block !important;
 }
+
+/* 3. Asegurar la consistencia visual en todo el bloque de contacto */
+footer, .footer, #informacion-contacto {
+  text-align: center !important;
+  width: 100% !important;
+}
+
 
 /* 4. Asegurar que los contenedores de texto usen su ancho completo en Squarespace */
 .sqs-block-html-content {
@@ -149,6 +162,22 @@ footer p {
     white-space: nowrap !important;
     word-break: keep-all !important;
   }
+
+  /* Eliminar el margen y relleno invisible que empuja las listas a la derecha */
+ul {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  list-style-position: inside !important; /* Mueve el punto hacia adentro para que no use margen externo */
+  text-align: center !important;
+}
+
+/* Asegurar que cada elemento de la lista no tenga espacios extras a los lados */
+li {
+  padding: 0 !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
 
   
 </style>
@@ -2127,8 +2156,8 @@ system_desktop
 
 </div>
 </div></div></div><div class="fe-block fe-block-yui_3_17_2_1_1785781329576_9318"><div class="sqs-block website-component-block sqs-block-website-component sqs-block-html html-block" data-block-css="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/51f8b177-e779-41f7-a632-53f2040db8df_804/website.components.html.styles.css&quot;]" data-block-scripts="[&quot;https://definitions.sqspcdn.com/website-component-definition/static-assets/website.components.html/51f8b177-e779-41f7-a632-53f2040db8df_804/website.components.html.visitor.js&quot;]" data-block-type="1337" data-definition-name="website.components.html" data-sqsp-block="text" data-website-component-id="yui_3_17_2_1_1785781329576_9318" id="block-yui_3_17_2_1_1785781329576_9318"><div class="sqs-block-content"><div class="sqs-text-block-container">
-  
-<p style="text-align: center !important; white-space: normal !important; width: 100% !important;">
+
+  <p style="text-align: center !important; white-space: normal !important; width: 100% !important; margin-top: 0 !important; padding-top: 0 !important;">
   Soy estudiante de la carrera de Simulaciones Interactivas y Videojuegos en el Instituto Tecnológico de las Américas (ITLA). Con capacidades para aterrizar ideas, volverlas factibles y traerlas a la realidad, a las cuales se le suman conocimientos en leyes competentes al derecho de autor y conocimientos de música para videojuegos.
 </p>
 
