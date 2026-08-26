@@ -11511,37 +11511,36 @@ system_desktop
   </div>
 
   <!-- ESTILOS ANTIBLOQUEO: GARANTIZAN ANCHO, ALTO Y VISIBILIDAD -->
+    <!-- ESTILOS AVANZADOS BYPASS CONTRA LA COMPRESIÓN DE REJILLA -->
   <style>
-    /* 1. REVIVIR Y ABREVAR LOS CONTENEDORES PADRES COLAPSADOS */
-    /* Forzamos a que las cajas de Squarespace mantengan su tamaño estructural para que no se escondan */
+    /* 1. LIBERAR EL CONTENEDOR ENANO DE SQUARESPACE */
     .fe-block-5f27aa45375a143dccc6, 
     #block-5f27aa45375a143dccc6,
     .sqs-block-content {
       display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
       width: 100% !important;
-      min-height: 450px !important; /* Asegura altura mínima para evitar que colapse a 0px */
+      min-height: 500px !important; /* Mantiene viva la altura de la sección */
       position: relative !important;
-      left: 0 !important;
       transform: none !important;
     }
 
-    /* 2. DISEÑO DEL CONTENEDOR NUESTRO */
+    /* 2. FORZAR NUESTRO CONTENEDOR A EXPANDIRSE POR ENCIMA DE SQUARESPACE */
     #mi-bloque-musica-independiente {
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important; /* Centra el bloque exactamente en el medio de la pantalla */
+      width: 90vw !important; /* Ocupa el 90% del ancho real del monitor */
+      max-width: 1100px !important; /* Evita que se estire demasiado en pantallas gigantes */
       display: block !important;
-      width: 100% !important;
-      max-width: 1200px !important;
-      margin: 30px auto !important;
-      padding: 10px 20px !important;
       box-sizing: border-box !important;
+      z-index: 10 !important;
     }
 
-    /* 3. CONFIGURACIÓN DE LA REJILLA EN DOS COLUMNAS EQUILIBRADAS */
+    /* 3. REJILLA INDEPENDIENTE EN DOS COLUMNAS REALES */
     .rejilla-musica-segura {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* Mitad y mitad exactos sin importar Squarespace */
-      gap: 35px !important;
+      grid-template-columns: 1fr 1fr !important; /* Reparte el espacio en 50% y 50% reales */
+      gap: 40px !important;
       width: 100% !important;
       box-sizing: border-box !important;
     }
@@ -11558,19 +11557,19 @@ system_desktop
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: #000000 !important; /* Fondo negro sólido para ocultar imperfecciones */
+      background-color: #000000 !important; /* Fondo negro para que no se vea nada por detrás */
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
-    /* 5. ARREGLO DE TEXTOS SÓLIDOS (ORIENTACIÓN HORIZONTAL OBLIGATORIA) */
+    /* 5. ARREGLO DE TEXTOS HORIZONTALES (PROHIBIDO CAER EN CASCADA) */
     .etiqueta-autor, .etiqueta-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
       white-space: normal !important;
-      word-break: keep-all !important; /* Prohibido caer en cascada letra por letra */
+      word-break: keep-all !important; 
       overflow-wrap: break-word !important;
       text-align: left !important;
     }
@@ -11596,7 +11595,7 @@ system_desktop
       margin-top: auto !important;
     }
 
-    /* 6. CONTROL DEL MENÚ DESPLEGABLE */
+    /* 6. CONTROL DEL ACORDEÓN DESPLEGABLE */
     .acordeon-desplegable-fijo {
       width: 100% !important;
       margin-bottom: 15px !important;
@@ -11626,8 +11625,14 @@ system_desktop
       white-space: normal !important;
     }
 
-    /* Ajuste automático para visualización correcta en móviles */
+    /* Comportamiento fluido para celulares */
     @media (max-width: 768px) {
+      #mi-bloque-musica-independiente {
+        position: relative !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+      }
       .rejilla-musica-segura {
         grid-template-columns: 1fr !important;
         gap: 25px !important;
