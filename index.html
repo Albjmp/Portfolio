@@ -114,28 +114,27 @@
 }
 
 <style>
-/* 1. Forzar al teléfono a mantenerse en una sola línea completa */
-.sqs-block-html, .sqs-html-content, p, span, a {
-  white-space: normal;
+/* 1. Curar el texto de Sobre Mí: Permitirle saltos de línea normales y centrarlo */
+.sqs-html-content p, .sqs-block-html p {
+  white-space: normal !important;
+  text-align: center !important;
+  word-break: normal !important;
 }
 
-/* Evitar quiebres en guiones */
-p, span, a {
+/* 2. Forzar al número de teléfono a NO dividirse en los guiones */
+a[href^="tel:"], 
+p:contains("809"), 
+p:contains("-") {
   word-break: keep-all !important;
-  overflow-wrap: normal !important;
-}
-
-/* Prohibir salto de línea en el texto del teléfono */
-.sqs-html-content p {
   white-space: nowrap !important;
 }
 
-/* 2. Asegurar que la caja del footer tenga el 100% del ancho */
-.sqs-block-html-content, .sqs-block-html {
+/* 3. Asegurar que las cajas de Squarespace tengan el ancho correcto */
+.sqs-block-html, .sqs-block-html-content {
   width: 100% !important;
-  max-width: 100% !important;
 }
 </style>
+
 
 
 
