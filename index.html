@@ -11496,13 +11496,12 @@ system_desktop
         </div>
       </details>
 
-      <!-- Tarjeta MP3: Aventura Relajada (Debajo de los acordeones) -->
+      <!-- Tarjeta MP3: Aventura Relajada -->
       <div class="audio-card main-track">
         <div class="audio-info">
           <span class="audio-author">Alberto Muñoz</span>
           <h4 class="audio-title">Música de aventura relajada</h4>
         </div>
-        <!-- Recuerda ajustar la ruta del archivo si es necesario -->
         <audio controls src="audio/Alberto Munoz Musica de aventura relajada.mp3"></audio>
       </div>
 
@@ -11534,44 +11533,56 @@ system_desktop
   </div>
 </section>
 
-<!-- ESTILOS CSS UNIFICADOS -->
+<!-- ESTILOS CSS CORREGIDOS -->
 <style>
-/* Contenedor general de la sección de música */
+/* Forzar que todos los elementos calculen bien sus dimensiones */
+.music-section, 
+.music-section *, 
+.music-section *::before, 
+.music-section *::after {
+  box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección */
 .music-section {
   width: 100%;
-  padding: 40px 20px;
-  box-sizing: border-box;
+  display: block;
+  padding: 40px 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Contenedor flexible ocupando todo el ancho de su sección padre */
 .music-container {
   display: flex;
-  gap: 40px; /* Espacio de separación entre la columna izquierda y derecha */
-  max-width: 1100px;
+  gap: 30px; /* Espacio de separación horizontal entre columnas */
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* Configuración de las dos columnas distribuidas equitativamente */
+/* Columnas balanceadas que no se aplastan */
 .music-column {
-  flex: 1;
+  flex: 1 1 0%; /* Permite crecer y ocupar el 50% exacto cada una */
+  min-width: 0;   /* Evita el colapso de texto interno en Flexbox */
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espacio vertical entre los elementos internos de cada columna */
+  gap: 20px;     /* Separación vertical entre tarjetas */
 }
 
 /* Estilos de los Acordeones HTML nativos (<details>) */
 .music-accordion {
+  width: 100%;
   background-color: #f8f9fa;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 12px 16px;
+  padding: 14px 18px;
   transition: all 0.3s ease;
 }
 
-/* Estilo cuando el acordeón se despliega */
 .music-accordion[open] {
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .music-accordion summary {
@@ -11599,25 +11610,26 @@ system_desktop
 
 /* Estilos de los cuadros contenedores de audio (Cards) */
 .audio-card {
+  width: 100%;
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* Detalle visual en azul para resaltar la canción principal en la izquierda */
+/* Detalle visual para la canción principal (Columna Izquierda) */
 .audio-card.main-track {
-  border-left: 5px solid #3182ce; 
+  border-left: 6px solid #3182ce; 
 }
 
 .audio-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .audio-author {
@@ -11633,15 +11645,17 @@ system_desktop
   font-size: 1.15rem;
   font-weight: 600;
   color: #2d3748;
+  word-wrap: break-word; /* Asegura que títulos largos hagan salto de línea */
 }
 
-/* Ajuste del reproductor por defecto del navegador */
+/* Ajuste del reproductor por defecto */
 .audio-card audio {
   width: 100%;
+  display: block;
   outline: none;
 }
 
-/* Adaptación responsive para celulares y pantallas angostas */
+/* Adaptación responsive para celulares y pantallas pequeñas */
 @media (max-width: 768px) {
   .music-container {
     flex-direction: column;
