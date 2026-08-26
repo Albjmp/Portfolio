@@ -11474,7 +11474,7 @@ system_desktop
   
   <div class="grilla-musica-portafolio">
     
-    <!-- COLUMNA IZQUIERDA: Textos arriba y el primer audio abajo -->
+    
     <div class="columna-izquierda-musica">
       <div class="bloque-informacion-adicional">
         <h4 class="subtitulo-musica-info">Lo que se pidió</h4>
@@ -11491,7 +11491,7 @@ system_desktop
         </details>
       </div>
 
-      <!-- Cuadrado con borde del reproductor 1 -->
+      
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
         <span class="info-archivo">Música de aventura relajada.mp3</span>
@@ -11499,7 +11499,7 @@ system_desktop
       </div>
     </div>
     
-    <!-- COLUMNA DERECHA: Los otros dos audios ordenados de arriba a abajo -->
+    
     <div class="columna-derecha-musica">
       <div class="tarjeta-audio-portafolio">
         <span class="info-autor">Alberto Muñoz</span>
@@ -11516,26 +11516,23 @@ system_desktop
 
   </div>
 
-  <!-- ESTILOS AVANZADOS QUIRÚRGICOS -->
+  
   <style>
-    /* ========================================================
-       1. LIBERAR EXCLUSIVAMENTE ESTE BLOQUE DE SQUARESPACE
-       Esto anula el ancho absoluto diminuto que aplastaba el texto
-       ======================================================== */
+    
     .fe-block-5f27aa45375a143dccc6,
     #block-5f27aa45375a143dccc6 {
-      display: inline-table !important; /* Desarma la estructura de cuadrícula rígida de Squarespace */
+      display: flex !important;
+      position: relative !important;
       width: 100% !important;
       max-width: 100% !important;
       min-width: 100% !important;
-      position: relative !important;
       left: 0 !important;
       transform: none !important;
-      margin: 0 auto !important;
       box-sizing: border-box !important;
     }
 
-    /* Forzar al contenedor interno a expandirse completamente */
+    
+    .fe-block-5f27aa45375a143dccc6 .sqs-block-content,
     #block-5f27aa45375a143dccc6 .sqs-block-content {
       display: block !important;
       width: 100% !important;
@@ -11549,11 +11546,11 @@ system_desktop
       box-sizing: border-box !important;
     }
 
-    /* 2. REJILLA DE DOS COLUMNAS INDEPENDIENTE */
+    
     .grilla-musica-portafolio {
       display: grid !important;
-      grid-template-columns: 1fr 1fr !important; /* Dos columnas estables al 50% */
-      gap: 40px !important;
+      grid-template-columns: 1fr 1fr !important; 
+      gap: 45px !important;
       width: 100% !important;
       box-sizing: border-box !important;
     }
@@ -11567,10 +11564,10 @@ system_desktop
     }
 
     .columna-derecha-musica {
-      gap: 25px !important; /* Espaciado entre tarjetas derechas */
+      gap: 25px !important; 
     }
 
-    /* 3. INFORMACIÓN EXTERIOR (FUERA Y ARRIBA DEL AUDIO) */
+    
     .bloque-informacion-adicional {
       width: 100% !important;
       margin-bottom: 25px !important;
@@ -11594,7 +11591,7 @@ system_desktop
       margin: 0 0 15px 0 !important;
     }
 
-    /* Acordeón nativo fuera de la caja */
+    
     .acordeon-limpio-fuera {
       width: 100% !important;
       margin-top: 10px !important;
@@ -11607,6 +11604,7 @@ system_desktop
       cursor: pointer !important;
       padding: 8px 0 !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+      outline: none !important;
     }
 
     .contenido-acordeon-fuera {
@@ -11621,19 +11619,19 @@ system_desktop
       margin-bottom: 10px !important;
     }
 
-    /* 4. DISEÑO DE LAS TARJETAS CON CONTORNO BLANCO */
+    
     .tarjeta-audio-portafolio {
       border: 1.5px solid #ffffff !important;
       border-radius: 12px !important;
       padding: 24px !important;
-      background-color: #000000 !important; /* Fondo negro sólido para evitar transparencias */
+      background-color: #000000 !important; 
       box-sizing: border-box !important;
       width: 100% !important;
       display: flex !important;
       flex-direction: column !important;
     }
 
-    /* Garantizar que el texto se mantenga completamente horizontal */
+    
     .info-autor, .info-archivo {
       font-family: 'Forum', sans-serif !important;
       display: block !important;
@@ -11661,7 +11659,7 @@ system_desktop
       display: block !important;
     }
 
-    /* Adaptación responsiva para celulares */
+    
     @media (max-width: 768px) {
       .grilla-musica-portafolio {
         grid-template-columns: 1fr !important;
@@ -11670,6 +11668,7 @@ system_desktop
     }
   </style>
 </section>
+
 
 
 
